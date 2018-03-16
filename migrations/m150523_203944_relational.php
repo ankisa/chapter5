@@ -7,6 +7,12 @@ class m150523_203944_relational extends Migration
 {
     public function safeUp()
     {
+    	// Roles
+	$this->createTable('role', [
+		'id' 		  => Schema::TYPE_PK,
+		'name' 		  => Schema::TYPE_STRING
+	]);
+	    
 		// Users
         $this->createTable('user', [
             'id'           => Schema::TYPE_PK,
@@ -21,12 +27,6 @@ class m150523_203944_relational extends Migration
         ]);
         
         $this->createIndex('user_unique_email', 'user', 'email', true);
-
-		// Roles
-		$this->createTable('role', [
-			'id' 		  => Schema::TYPE_PK,
-			'name' 		  => Schema::TYPE_STRING
-		]);
 
 		// Posts
 		$this->createTable('post', [
